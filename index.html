@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CapCut 9.4.0 Pro — Download</title>
+  <meta name="description" content="Download CapCut 9.4.0 Pro — the ultimate AI-powered video editor for Windows and Mac.">
+  <link rel="icon" href="images/lv_web-2.ico">
+  <style>
+    @font-face { font-family: 'AlbertSans'; src: url('fonts/AlbertSans-Regular.ttf') format('truetype'); font-weight: 400; }
+    @font-face { font-family: 'AlbertSans'; src: url('fonts/AlbertSans-Medium.ttf') format('truetype'); font-weight: 500; }
+    @font-face { font-family: 'AlbertSans'; src: url('fonts/AlbertSans-SemiBold.ttf') format('truetype'); font-weight: 600; }
+    @font-face { font-family: 'AlbertSans'; src: url('fonts/AlbertSans-Bold.ttf') format('truetype'); font-weight: 700; }
+    @font-face { font-family: 'AlbertSans'; src: url('fonts/AlbertSans-ExtraBold.ttf') format('truetype'); font-weight: 800; }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0a0a0a;
+      --bg-card: rgba(255,255,255,0.05);
+      --border: rgba(255,255,255,0.08);
+      --text: #fff;
+      --text-sub: rgba(255,255,255,0.6);
+      --text-dim: rgba(255,255,255,0.4);
+      --text-muted: rgba(255,255,255,0.3);
+      --glow: rgba(0,202,224,0.15);
+      --shadow: rgba(0,0,0,0.5);
+      --footer-border: rgba(255,255,255,0.08);
+    }
+    [data-theme="light"] {
+      --bg: #f5f5f7;
+      --bg-card: rgba(0,0,0,0.04);
+      --border: rgba(0,0,0,0.1);
+      --text: #1a1a1a;
+      --text-sub: rgba(0,0,0,0.6);
+      --text-dim: rgba(0,0,0,0.45);
+      --text-muted: rgba(0,0,0,0.35);
+      --glow: rgba(0,180,200,0.1);
+      --shadow: rgba(0,0,0,0.12);
+      --footer-border: rgba(0,0,0,0.1);
+    }
+
+    body {
+      font-family: 'AlbertSans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+      transition: background 0.4s, color 0.4s;
+    }
+
+    #particles {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .content { position: relative; z-index: 1; }
+
+    .theme-toggle {
+      position: fixed;
+      top: 20px; right: 24px;
+      z-index: 100;
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      color: var(--text);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      transition: background 0.3s, border-color 0.3s, color 0.3s, transform 0.2s;
+      backdrop-filter: blur(12px);
+    }
+    .theme-toggle:hover { transform: scale(1.1); border-color: #00cae0; }
+    .theme-toggle .icon-sun { display: none; }
+    .theme-toggle .icon-moon { display: block; }
+    [data-theme="light"] .theme-toggle .icon-sun { display: block; }
+    [data-theme="light"] .theme-toggle .icon-moon { display: none; }
+
+    .hero {
+      text-align: center;
+      padding: 80px 20px 40px;
+      position: relative;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -200px; left: 50%;
+      transform: translateX(-50%);
+      width: 800px; height: 800px;
+      background: radial-gradient(circle, var(--glow) 0%, transparent 70%);
+      pointer-events: none; z-index: 0;
+    }
+    .hero-content { position: relative; z-index: 1; }
+
+    .badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #00cae0, #00e5db);
+      color: #000;
+      font-size: 13px; font-weight: 700;
+      padding: 6px 16px;
+      border-radius: 20px;
+      margin-bottom: 24px;
+      letter-spacing: 0.5px;
+    }
+
+    h1 {
+      font-size: 56px; font-weight: 800; line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    [data-theme="dark"] h1 {
+      background: linear-gradient(180deg, #fff 30%, rgba(255,255,255,0.6) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    [data-theme="light"] h1 {
+      background: linear-gradient(180deg, #1a1a1a 30%, rgba(0,0,0,0.55) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+
+    .subtitle { font-size: 20px; color: var(--text-sub); max-width: 560px; margin: 0 auto 40px; line-height: 1.5; }
+    .version-tag { display: inline-block; color: var(--text-dim); font-size: 14px; margin-bottom: 32px; }
+    .version-tag span { color: #00cae0; font-weight: 600; }
+
+    .download-btn {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: linear-gradient(90deg, #57d5ff, #34dbf8 25%, #00e1ec 50%, #00e5db 75%, #18e9c7);
+      color: #000; font-size: 18px; font-weight: 700;
+      padding: 18px 48px; border-radius: 12px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 24px rgba(0,202,224,0.3);
+      border: none; cursor: pointer;
+    }
+    .download-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,202,224,0.4); }
+    .download-btn svg { width: 22px; height: 22px; }
+
+    .os-info { margin-top: 16px; font-size: 13px; color: var(--text-dim); }
+
+    .video-section {
+      margin-top: 60px;
+      max-width: 860px;
+      margin-left: auto; margin-right: auto;
+      padding: 0 20px;
+    }
+    .video-thumb {
+      position: relative; width: 100%; padding-bottom: 56.25%;
+      border-radius: 16px; overflow: hidden;
+      box-shadow: 0 20px 60px var(--shadow);
+      border: 1px solid var(--border);
+      cursor: pointer; transition: transform 0.3s;
+      display: block;
+    }
+    .video-thumb:hover { transform: scale(1.01); }
+    .video-thumb img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
+    .play-btn {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 72px; height: 72px;
+      background: rgba(0,0,0,0.7);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .video-thumb:hover .play-btn { background: rgba(0,202,224,0.9); transform: translate(-50%, -50%) scale(1.1); }
+    .play-btn svg { width: 28px; height: 28px; fill: #fff; margin-left: 4px; }
+    .video-thumb:hover .play-btn svg { fill: #000; }
+
+    .features { padding: 80px 20px; max-width: 1100px; margin: 0 auto; }
+    .features h2 { text-align: center; font-size: 36px; font-weight: 700; margin-bottom: 48px; }
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+    .feature-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 16px; padding: 32px; transition: border-color 0.3s, background 0.3s;
+    }
+    .feature-card:hover { border-color: rgba(0,202,224,0.3); }
+    .feature-icon {
+      width: 48px; height: 48px;
+      background: linear-gradient(135deg, rgba(0,202,224,0.15), rgba(0,229,219,0.05));
+      border-radius: 12px; display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px; font-size: 24px;
+    }
+    .feature-card h3 { font-size: 18px; font-weight: 600; margin-bottom: 8px; }
+    .feature-card p { font-size: 14px; color: var(--text-sub); line-height: 1.6; }
+
+    .specs { padding: 60px 20px 80px; max-width: 700px; margin: 0 auto; }
+    .specs h2 { text-align: center; font-size: 28px; font-weight: 700; margin-bottom: 32px; }
+    .specs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .spec-item { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+    .spec-item .label { font-size: 12px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+    .spec-item .value { font-size: 15px; font-weight: 600; }
+
+    .modal-overlay {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(8px);
+      z-index: 200;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s;
+    }
+    .modal-overlay.active { opacity: 1; pointer-events: auto; }
+    .modal {
+      background: #161618;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 36px;
+      max-width: 420px;
+      width: 90%;
+      transform: scale(0.9) translateY(20px);
+      transition: transform 0.3s;
+      position: relative;
+    }
+    .modal-overlay.active .modal { transform: scale(1) translateY(0); }
+    .modal-overlay.closing { opacity: 0; pointer-events: none; }
+    .modal-overlay.closing .modal { transform: scale(0.92) translateY(16px); }
+    [data-theme="light"] .modal { background: #fff; border-color: rgba(0,0,0,0.1); }
+
+    .modal-close {
+      position: absolute; top: 14px; right: 14px;
+      width: 32px; height: 32px;
+      border-radius: 8px; border: none;
+      background: rgba(255,255,255,0.08);
+      color: var(--text-sub);
+      cursor: pointer; font-size: 18px;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s;
+    }
+    .modal-close:hover { background: rgba(255,255,255,0.15); }
+
+    .modal-icon {
+      width: 56px; height: 56px;
+      background: linear-gradient(135deg, rgba(0,202,224,0.2), rgba(0,229,219,0.05));
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px;
+    }
+    .modal-icon svg { width: 28px; height: 28px; stroke: #00cae0; }
+
+    .modal h3 { font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+    .modal-subtitle { font-size: 13px; color: var(--text-dim); margin-bottom: 24px; }
+
+    .modal-field {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+    [data-theme="light"] .modal-field { background: rgba(0,0,0,0.04); }
+    .modal-field .field-label {
+      font-size: 11px; color: var(--text-dim);
+      text-transform: uppercase; letter-spacing: 0.8px;
+      margin-bottom: 4px;
+    }
+    .modal-field .field-value {
+      font-size: 15px; font-weight: 600;
+      font-family: 'Courier New', monospace;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 8px;
+    }
+    .modal-field .field-value span { word-break: break-all; }
+
+    .copy-btn {
+      flex-shrink: 0;
+      background: linear-gradient(135deg, #00cae0, #00e5db);
+      color: #000; border: none; border-radius: 8px;
+      padding: 8px 14px; font-size: 12px; font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      white-space: nowrap;
+    }
+    .copy-btn:hover { transform: scale(1.05); box-shadow: 0 2px 12px rgba(0,202,224,0.4); }
+    .copy-btn.copied { background: #22c55e; }
+
+    .modal-note {
+      margin-top: 16px;
+      font-size: 12px;
+      color: var(--text-muted);
+      text-align: center;
+      line-height: 1.6;
+    }
+    .modal-note a {
+      color: #00cae0;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .modal-note a:hover { color: #00e5db; text-decoration: underline; }
+
+    .modal-download {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      width: 100%; margin-top: 20px;
+      background: linear-gradient(90deg, #57d5ff, #34dbf8 25%, #00e1ec 50%, #00e5db 75%, #18e9c7);
+      color: #000; font-size: 16px; font-weight: 700;
+      padding: 16px; border-radius: 12px; border: none;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(0,202,224,0.3);
+    }
+    .modal-download:hover { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(0,202,224,0.45); }
+    .modal-download svg { width: 20px; height: 20px; }
+
+    footer { text-align: center; padding: 40px 20px; border-top: 1px solid var(--footer-border); font-size: 13px; color: var(--text-muted); }
+
+    @media (max-width: 640px) {
+      h1 { font-size: 36px; }
+      .subtitle { font-size: 16px; }
+      .download-btn { font-size: 16px; padding: 14px 32px; }
+      .specs-grid { grid-template-columns: 1fr; }
+      .theme-toggle { top: 12px; right: 12px; width: 38px; height: 38px; }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="particles"></canvas>
+
+  <button class="theme-toggle" id="themeBtn" aria-label="Toggle theme">
+    <span class="icon-sun">&#9728;&#65039;</span>
+    <span class="icon-moon">&#127769;</span>
+  </button>
+
+  <div class="content">
+    <section class="hero">
+      <div class="hero-content">
+        <div class="badge">LATEST RELEASE</div>
+        <h1>CapCut 9.4.0 Pro</h1>
+        <p class="subtitle">The ultimate AI-powered video editor. Create stunning content with professional tools, effects, and AI features — all included.</p>
+        <div class="version-tag"><span>Version</span> <span>9.4.0 Pro</span> &bull; 2026</div>
+        <br>
+        <button class="download-btn" id="downloadBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          Download for Windows
+        </button>
+        <p class="os-info">Windows 10 or above &bull; macOS 10.14 or above</p>
+      </div>
+    </section>
+
+
+    <section class="features">
+      <h2>All Pro Features Included</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <h3>AI Video Generator</h3>
+          <p>Generate videos from text prompts with advanced AI models. Create content in seconds.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Smart Editing</h3>
+          <p>AI-powered editing tools including auto-captions, background removal, and scene detection.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Pro Effects & Filters</h3>
+          <p>Access the full library of transitions, effects, filters, and trending templates.</p>
+        </div>
+        <div class="feature-card">
+          <h3>AI Voice & Audio</h3>
+          <p>Text-to-speech, voice changer, noise remover, and beat sync — all powered by AI.</p>
+        </div>
+        <div class="feature-card">
+          <h3>AI Image Generator</h3>
+          <p>Create custom images and artwork directly inside the editor with AI generation.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Advanced Export</h3>
+          <p>Export up to 4K with custom bitrate, frame rate, and format settings.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="specs">
+      <h2>System Requirements</h2>
+      <div class="specs-grid">
+        <div class="spec-item">
+          <div class="label">Platform</div>
+          <div class="value">Windows / macOS</div>
+        </div>
+        <div class="spec-item">
+          <div class="label">Windows</div>
+          <div class="value">10 or above</div>
+        </div>
+        <div class="spec-item">
+          <div class="label">macOS</div>
+          <div class="value">10.14 or above</div>
+        </div>
+        <div class="spec-item">
+          <div class="label">Version</div>
+          <div class="value">9.4.0 Pro</div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>CapCut is developed by ByteDance. This is an informational page.</p>
+    </footer>
+  </div>
+
+  <div class="modal-overlay" id="modal">
+    <div class="modal" id="modalContent">
+      <button class="modal-close" id="modalClose">&times;</button>
+      <div class="modal-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+      </div>
+      <h3>Download CapCut Pro</h3>
+      <p class="modal-subtitle">Save the archive and use the password below to extract</p>
+
+      <div class="modal-field">
+        <div class="field-label">File name</div>
+        <div class="field-value">
+          <span>CapCut-Pro_9.4.0.zip</span>
+        </div>
+      </div>
+
+      <div class="modal-field">
+        <div class="field-label">Archive password</div>
+        <div class="field-value">
+          <span>CapCut-Install</span>
+          <button class="copy-btn" id="copyBtn">Copy</button>
+        </div>
+      </div>
+
+      <p class="modal-note">Extract the archive using <a href="https://www.win-rar.com/download.html" target="_blank">WinRAR</a> or <a href="https://www.7-zip.org/download.html" target="_blank">7-Zip</a></p>
+      <button class="modal-download" id="modalDownload">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        Download
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // Theme toggle
+    document.getElementById('themeBtn').addEventListener('click', function() {
+      var html = document.documentElement;
+      var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      initParticles();
+    });
+
+    (function() {
+      var saved = localStorage.getItem('theme');
+      if (saved) document.documentElement.setAttribute('data-theme', saved);
+    })();
+
+    // Modal
+    var modal = document.getElementById('modal');
+    var modalContent = document.getElementById('modalContent');
+
+    document.getElementById('downloadBtn').addEventListener('click', function() {
+      modal.classList.add('active');
+    });
+
+    function closeModal() {
+      modal.classList.add('closing');
+      modal.classList.remove('active');
+      setTimeout(function() { modal.classList.remove('closing'); }, 300);
+    }
+
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) closeModal();
+    });
+
+    document.getElementById('modalClose').addEventListener('click', closeModal);
+    document.getElementById('modalDownload').addEventListener('click', function() {
+      window.open('https://lfdrive.ru/f/4DoF1YjW', '_blank');
+      closeModal();
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    // Copy password
+    document.getElementById('copyBtn').addEventListener('click', function() {
+      var btn = this;
+      navigator.clipboard.writeText('CapCut-Install').then(function() {
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(function() {
+          btn.textContent = 'Copy';
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    });
+
+    // Particles
+    var canvas = document.getElementById('particles');
+    var ctx = canvas.getContext('2d');
+    var particles = [];
+    var mouse = { x: -1000, y: -1000 };
+    var w, h;
+
+    function resize() {
+      w = canvas.width = window.innerWidth;
+      h = canvas.height = window.innerHeight;
+    }
+
+    function getThemeColors() {
+      var dark = document.documentElement.getAttribute('data-theme') === 'dark';
+      return {
+        dotR: dark ? 255 : 0,
+        dotG: dark ? 255 : 0,
+        dotB: dark ? 255 : 0,
+        glowColor: dark ? '0,202,224' : '0,180,200',
+        mouseGlowAlpha: dark ? 0.25 : 0.18,
+        mouseGlowRadius: 180
+      };
+    }
+
+    function Particle() {
+      this.x = Math.random() * w;
+      this.y = Math.random() * h;
+      this.vx = (Math.random() - 0.5) * 0.4;
+      this.vy = (Math.random() - 0.5) * 0.4;
+      this.baseRadius = Math.random() * 1.5 + 0.5;
+      this.radius = this.baseRadius;
+    }
+
+    Particle.prototype.update = function() {
+      this.x += this.vx;
+      this.y += this.vy;
+      if (this.x < 0) this.x = w;
+      if (this.x > w) this.x = 0;
+      if (this.y < 0) this.y = h;
+      if (this.y > h) this.y = 0;
+
+      var dx = mouse.x - this.x;
+      var dy = mouse.y - this.y;
+      var dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < 200) {
+        this.radius = this.baseRadius + ((200 - dist) / 200) * 3;
+      } else {
+        this.radius += (this.baseRadius - this.radius) * 0.05;
+      }
+    };
+
+    Particle.prototype.draw = function() {
+      var c = getThemeColors();
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(' + c.dotR + ',' + c.dotG + ',' + c.dotB + ',' + (0.3 + (this.radius - this.baseRadius) * 0.2) + ')';
+      ctx.fill();
+    };
+
+    function initParticles() {
+      particles = [];
+      var count = Math.min(Math.floor((w * h) / 8000), 150);
+      for (var i = 0; i < count; i++) {
+        particles.push(new Particle());
+      }
+    }
+
+    function drawLines() {
+      var c = getThemeColors();
+      for (var i = 0; i < particles.length; i++) {
+        for (var j = i + 1; j < particles.length; j++) {
+          var dx = particles[i].x - particles[j].x;
+          var dy = particles[i].y - particles[j].y;
+          var dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 120) {
+            var alpha = (1 - dist / 120) * 0.12;
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = 'rgba(' + c.dotR + ',' + c.dotG + ',' + c.dotB + ',' + alpha + ')';
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        }
+      }
+    }
+
+    function drawMouseGlow() {
+      var c = getThemeColors();
+      if (mouse.x < 0) return;
+      var gradient = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, c.mouseGlowRadius);
+      gradient.addColorStop(0, 'rgba(' + c.glowColor + ',' + c.mouseGlowAlpha + ')');
+      gradient.addColorStop(1, 'rgba(0,0,0,0)');
+      ctx.beginPath();
+      ctx.arc(mouse.x, mouse.y, c.mouseGlowRadius, 0, Math.PI * 2);
+      ctx.fillStyle = gradient;
+      ctx.fill();
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, w, h);
+      drawMouseGlow();
+      drawLines();
+      for (var i = 0; i < particles.length; i++) {
+        particles[i].update();
+        particles[i].draw();
+      }
+      requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('resize', function() { resize(); initParticles(); });
+    window.addEventListener('mousemove', function(e) { mouse.x = e.clientX; mouse.y = e.clientY; });
+    window.addEventListener('mouseleave', function() { mouse.x = -1000; mouse.y = -1000; });
+
+    resize();
+    initParticles();
+    animate();
+  </script>
+</body>
+</html>
